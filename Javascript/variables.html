@@ -1,0 +1,110 @@
+<script>
+
+//********** FASE 1 **********
+
+//Creamos variables para el nombre
+var nom = "Jordi";
+var cognom1 = "Contreras";
+var cognom2 = "Cuerva";
+
+//Creamos variables para la fecha de nacimiento
+var dia = 30;
+var mes = 5;
+var any = 1982;
+
+//Mostramos por pantalla los datos concatenados
+console.log("********** FASE 1 **********")
+console.log(cognom1 + "" + cognom2 + "" + nom);
+console.log(dia + "/" + mes + "/" + any);
+
+
+//********** FASE 2 **********
+console.log("********** FASE 2 **********");
+
+var anyTraspas = 1948;
+var intervalAnyTraspas = 4;
+
+//Llamamos a la función que nos dice el número de años de traspaso entre 2 fechas
+NumAnysTraspas(anyTraspas, any, intervalAnyTraspas);
+
+
+//********** FASE 3 **********
+console.log("********** FASE 3 **********");
+
+//Llamamos a la función que recorre un bucle para decirnos los años de traspaso entre dos años pasados
+//y nos devuelve un bool true o false si any es año de traspaso o no
+var anyNaixementEsTraspas = AnysDeTraspas(anyTraspas, any, intervalAnyTraspas);
+//Creem les variables amb les frases a imprimir per consola
+var noEsAnyTraspas = "Aquest any no es de traspàs";
+var esAnyTraspas = "Aquest any es de traspàs";
+
+//Comprobamos el resultado devuelto por la función e imprimimos el mensaje correspondiente
+if (anyNaixementEsTraspas)
+{
+    console.log(esAnyTraspas);
+}
+else
+{
+    console.log(noEsAnyTraspas);
+}
+
+
+//********** FASE 4 **********
+console.log("********** FASE 4 **********");
+
+ //Concatemos las variables de nombre en la variable de nomComplet 
+ var nomComplet = nom + " " + cognom1 + " " + cognom2;
+//Concatemos las variables de fecha en la variable de dataNaixement 
+var dataNaixement = dia + "/" + mes + "/" + any;
+//Imprimimos por consola los valores
+console.log("El meu nom complet és: " + nomComplet);
+console.log("Vaig neixer el: " + dataNaixement);
+
+//Imprimimos por pantalla si el año de nacimiento es bisiexto, ya hemos obtenido el resultado en la variable anteriormente
+if (anyNaixementEsTraspas)
+{
+    console.log("El meu any de naixement és de traspàs");
+}
+else
+{
+    console.log("El meu any de naixement no és de traspàs");
+}
+
+
+
+
+
+//Función que calcula y dice el número de años de traspaso entre 2 años pasados como parámetro
+function NumAnysTraspas(anyTraspas, any, intervalAnyTraspas)
+{
+    var numAnysTraspas;
+    numAnysTraspas = parseInt((any - anyTraspas) / intervalAnyTraspas);
+    console.log("El número de años de traspaso entre " + anyTraspas +  " y " + any + " es " + numAnysTraspas);
+}
+
+
+
+//Funcion que nos dice los años de traspaso entre dos fechas y nos dice si any es año de traspaso devolviendo un bool
+function AnysDeTraspas(anyTraspas, any, intervalAnyTraspas)
+{
+    var anyNaixementEsTraspas = false;
+    var cont = 0;
+    var iteradorAnys = anyTraspas;             
+                
+    for(var i = iteradorAnys; i <= any; i += intervalAnyTraspas)
+    {
+        if (i == any)
+        {
+            anyNaixementEsTraspas = true;
+        }
+
+        console.log("iterador anys es " + i);
+        cont++;
+                    
+    }
+    console.log("Hi han " + cont + " anys de traspas entre " + anyTraspas + " i " + any);
+    return anyNaixementEsTraspas;            
+
+}
+
+</script>
